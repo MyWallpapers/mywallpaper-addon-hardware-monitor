@@ -19,6 +19,7 @@
         "command": "rustup",
         "args": [
           "run",
+          "--install",
           "1.92.0",
           "cargo",
           "install",
