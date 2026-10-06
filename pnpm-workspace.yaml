@@ -1,0 +1,9 @@
+nodeLinker: hoisted
+allowBuilds:
+  esbuild: false
+supportedArchitectures:
+  os:
+    - linux
+    - win32
+  cpu:
+    - x64

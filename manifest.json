@@ -1,0 +1,211 @@
+{
+  "runtime": "canvas-native-v1",
+  "name": "Hardware Monitor",
+  "description": "Live CPU, GPU, RAM and disk monitoring in five clean, configurable layouts. Local Windows measurements, no external service.",
+  "version": "1.0.0",
+  "entry": "dist/assets/addon.js",
+  "thumbnail": "assets/thumbnail.png",
+  "deviceSettingsVersion": "1",
+  "ui": {
+    "pointerEvents": "none"
+  },
+  "settings": [
+    {
+      "id": "presentation",
+      "type": "section",
+      "label": "Presentation"
+    },
+    {
+      "id": "layout",
+      "type": "select",
+      "label": "Layout",
+      "parent": "presentation",
+      "scope": "layer",
+      "default": "bars",
+      "options": [
+        {
+          "label": "Minimal bars",
+          "value": "bars"
+        },
+        {
+          "label": "Rings",
+          "value": "rings"
+        },
+        {
+          "label": "Live history",
+          "value": "history"
+        },
+        {
+          "label": "CPU overview",
+          "value": "overview"
+        },
+        {
+          "label": "Compact strip",
+          "value": "compact"
+        }
+      ]
+    },
+    {
+      "id": "showCpu",
+      "type": "boolean",
+      "label": "CPU",
+      "parent": "presentation",
+      "scope": "layer",
+      "default": true
+    },
+    {
+      "id": "showGpu",
+      "type": "boolean",
+      "label": "GPU",
+      "parent": "presentation",
+      "scope": "layer",
+      "default": true
+    },
+    {
+      "id": "showMemory",
+      "type": "boolean",
+      "label": "RAM",
+      "parent": "presentation",
+      "scope": "layer",
+      "default": true
+    },
+    {
+      "id": "showStorage",
+      "type": "boolean",
+      "label": "Disk",
+      "parent": "presentation",
+      "scope": "layer",
+      "default": true
+    },
+    {
+      "id": "appearance",
+      "type": "section",
+      "label": "Appearance"
+    },
+    {
+      "id": "backgroundColor",
+      "type": "color",
+      "label": "Background",
+      "parent": "appearance",
+      "scope": "layer",
+      "default": "#172027"
+    },
+    {
+      "id": "textColor",
+      "type": "color",
+      "label": "Text",
+      "parent": "appearance",
+      "scope": "layer",
+      "default": "#f3f6fc"
+    },
+    {
+      "id": "cpuColor",
+      "type": "color",
+      "label": "CPU",
+      "parent": "appearance",
+      "scope": "layer",
+      "default": "#309dff"
+    },
+    {
+      "id": "gpuColor",
+      "type": "color",
+      "label": "GPU",
+      "parent": "appearance",
+      "scope": "layer",
+      "default": "#41d797"
+    },
+    {
+      "id": "memoryColor",
+      "type": "color",
+      "label": "RAM",
+      "parent": "appearance",
+      "scope": "layer",
+      "default": "#a45bff"
+    },
+    {
+      "id": "storageColor",
+      "type": "color",
+      "label": "Disk",
+      "parent": "appearance",
+      "scope": "layer",
+      "default": "#ffaf44"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "label": "Panel opacity",
+      "parent": "appearance",
+      "scope": "layer",
+      "min": 0,
+      "max": 1,
+      "step": 0.05,
+      "default": 0.75
+    },
+    {
+      "id": "cornerRadius",
+      "type": "range",
+      "label": "Corner radius",
+      "parent": "appearance",
+      "scope": "layer",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 22
+    },
+    {
+      "id": "blurAmount",
+      "type": "range",
+      "label": "Glass blur",
+      "parent": "appearance",
+      "scope": "layer",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "id": "sampling",
+      "type": "section",
+      "label": "Sampling"
+    },
+    {
+      "id": "refreshInterval",
+      "type": "select",
+      "label": "Refresh rate",
+      "parent": "sampling",
+      "scope": "device",
+      "default": "2s",
+      "options": [
+        {
+          "label": "1 second",
+          "value": "1s"
+        },
+        {
+          "label": "2 seconds",
+          "value": "2s"
+        },
+        {
+          "label": "5 seconds",
+          "value": "5s"
+        }
+      ]
+    },
+    {
+      "id": "drive",
+      "type": "string",
+      "label": "Drive",
+      "description": "Leave empty for the Windows system drive, or enter a drive letter such as D:.",
+      "parent": "sampling",
+      "scope": "device",
+      "default": ""
+    }
+  ],
+  "native": {
+    "companion": {
+      "runtime": "process-v2",
+      "entries": {
+        "windows-x86_64": "native/out/windows-x86_64/bin/hardware-monitor.exe"
+      }
+    }
+  }
+}

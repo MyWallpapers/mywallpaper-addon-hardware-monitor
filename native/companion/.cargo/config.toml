@@ -1,0 +1,3 @@
+[target.x86_64-pc-windows-msvc]
+# Ship the runtime with the companion instead of requiring a separate VC++ installation.
+rustflags = ["-C", "target-feature=+crt-static"]

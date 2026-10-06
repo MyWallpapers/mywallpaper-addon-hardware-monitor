@@ -1,0 +1,41 @@
+{
+  "web": {
+    "command": "node",
+    "args": [
+      "scripts/build-web.mjs"
+    ],
+    "outputs": [
+      "dist"
+    ],
+    "inputs": [
+      "src",
+      "assets"
+    ]
+  },
+  "native": {
+    "builds": [
+      {
+        "id": "hardware-monitor-windows-x86_64",
+        "command": "rustup",
+        "args": [
+          "run",
+          "1.92.0",
+          "cargo",
+          "install",
+          "--force",
+          "--locked",
+          "--path",
+          ".",
+          "--root",
+          "../out/windows-x86_64",
+          "--target",
+          "x86_64-pc-windows-msvc"
+        ],
+        "cwd": "native/companion",
+        "outputs": [
+          "native/out/windows-x86_64/bin/hardware-monitor.exe"
+        ]
+      }
+    ]
+  }
+}
