@@ -1,8 +1,9 @@
 [package]
 name = "mywallpaper-hardware-monitor"
-version = "1.0.2"
+version = "1.0.3"
 edition = "2021"
 publish = false
+license = "MIT"
 
 [[bin]]
 name = "hardware-monitor"
